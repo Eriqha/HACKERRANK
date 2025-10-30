@@ -414,3 +414,149 @@ This code calculates how many chocolates can be eaten given a starting amount of
 This code determines the largest vehicle that can pass through a service lane segment for multiple test cases. The array `width` represents the width of each segment of the lane. For each case, defined by an entry and exit index, it finds the minimum width within that segment, because the largest vehicle that can pass is limited by the narrowest point. It stores the minimum width for each case in a `results` array and returns this array at the end.
 
 ![Flowchart](images/ServiceLane.png)
+
+## SurfaceArea
+<summary>SurfaceArea</summary>
+This code calculates the total surface area of a 3D structure represented by a 2D grid `A`, where each cell value indicates the height of stacked cubes. For each cell, it adds the top and bottom faces (2 units of area). Then, for every side (up, down, left, right), it checks if there’s an exposed surface by comparing the height difference between neighboring cells. If the current cell is taller, the visible difference is added to the surface area. Edge cells automatically expose their entire side. Finally, it returns the total calculated area.
+
+![Flowchart](images/SurfaceArea.png)
+
+## AbsolutePermutation
+<summary>AbsolutePermutation</summary>
+This code generates an “absolute permutation” of numbers from 1 to `n` such that the absolute difference between the position and the number at that position is exactly `k`. If `k` is 0, it simply returns a list from 1 to `n`. If `n` cannot be divided evenly into groups of `2 * k`, it’s impossible to form such a permutation, so it returns `[-1]`. Otherwise, it alternates between adding and subtracting `k` from each index value in groups of size `k` to build a valid permutation, ensuring the absolute difference condition holds true for all positions.
+
+![Flowchart](images/AbsolutePermutation.png)
+
+
+## BiggerIsGreater
+<summary>BiggerIsGreater</summary>
+This function finds the next lexicographically greater string that can be formed from the given word `w`. It works by identifying the rightmost character that can be swapped to make a larger word. First, it finds the pivot where the order breaks (a character smaller than the one after it). Then, it finds the smallest character to the right that’s larger than the pivot, swaps them, and reverses the order of characters after the pivot to make the smallest possible next word. If no such rearrangement exists, it returns “no answer”.
+
+![Flowchart](images/BiggerIsGreater.png)
+
+
+## Climbing the Leaderboard
+<summary>Climbing the Leaderboard</summary>
+This function calculates each player's rank after they finish their games based on existing leaderboard scores. It first removes duplicate scores using a `Set`, keeping only unique rankings. Then, for each player’s score, it moves backward through the leaderboard until it finds the correct rank position. The rank is computed as `i + 2` since the index starts at 0 and ranks begin at 1. The function returns an array of ranks corresponding to each player’s score.
+
+![Flowchart](images/ClimbingLeaderboard.png)
+
+
+## Ema's Supercomputer (Two Pluses)
+<summary>Two Pluses</summary>
+This function finds the maximum product of the areas of two non-overlapping plus shapes in a grid, where each plus consists of adjacent “G” cells (good cells). It iterates through every cell to identify all possible pluses by expanding symmetrically in four directions while remaining inside “G” cells. Each valid plus is stored with its position, size, and computed area (`4*s - 3`). The `overlap` function checks whether two pluses share any cells. Finally, the function compares all pairs of pluses, calculating their area products, and returns the largest product found.
+
+![Flowchart](images/TwoPluses.png)
+
+
+## Encryption
+<summary>Encryption</summary>
+This function encodes a message by arranging its characters into a rectangular grid based on the square root of the string’s length, then reading the columns vertically. First, all spaces are removed from the input string. The number of rows and columns is determined using the floor and ceiling of the square root of the total length. The string is then split into rows, forming a grid. Finally, each column is read top to bottom to form encrypted words, which are joined together with spaces to produce the final encoded message.
+
+![Flowchart](images/Encryption.png)
+
+
+## Extra Long Factorials
+<summary>Extra Long Factorials</summary>
+This function calculates the factorial of very large numbers that exceed standard integer limits by performing manual digit-by-digit multiplication. It stores the result as an array of digits, starting from 1. For each number from 2 to n, the function multiplies it with the current result while carrying over excess values. After processing all digits and handling remaining carries, it reverses the array and joins the digits to display the full factorial value as a string, ensuring accuracy for extremely large results.
+
+![Flowchart](images/ExtraLongFactorials.png)
+
+
+## Forming a Magic Square
+<summary>Forming a Magic Square</summary>
+This function determines the minimal cost to convert a given 3×3 matrix into a magic square (where each row, column, and diagonal sums to 15). It compares the input matrix to all 8 possible 3×3 magic squares by calculating the total difference (absolute difference of each corresponding cell). The function returns the smallest total cost among all comparisons.
+
+![Flowchart](images/FormingMagicSquare.png)
+
+
+## Greedy Florist
+<summary>getMinimumCost(k, c)</summary>
+This function calculates the minimum total cost for buying all flowers when multiple friends are sharing the cost. Each friend must pay more for flowers they buy after their first (price multiplied by the number of previous purchases + 1).  
+
+![Flowchart](images/GreedyFlorist.png)
+
+
+## Max Min
+<summary>maxMin(k, arr)</summary>
+This function finds the minimum possible unfairness from an array, where unfairness is defined as the difference between the maximum and minimum values in any subset of size `k`.
+
+![Flowchart](images/MaxMin.png)
+
+
+## Non-Divisible Subset
+<summary>Non-Divisible Subset</summary>
+This function finds the size of the largest subset of numbers such that the sum of any two numbers in the subset is **not divisible by `k`**.  
+It uses a frequency array to count remainders when each number is divided by `k`, then selects the optimal elements based on complementary remainder pairs (`i` and `k-i`). Special handling is applied for remainders `0` and `k/2` (if `k` is even).
+
+![Flowchart](images/NonDivisibleSubset.png)
+
+
+## Organizing Containers of Balls
+<summary>Organizing Containers of Balls</summary>
+This function checks if it’s possible to organize containers so that each one contains only balls of a single type.  
+It calculates:
+- The total number of balls in each container.
+- The total number of balls for each type across all containers.  
+If both sorted lists match, it means redistribution is possible.
+
+![Flowchart](images/OrganizingContainers.png)
+
+
+## Queen's Attack II
+<summary>Queen's Attack II</summary>
+This function calculates how many squares the queen can attack on an `n × n` chessboard, given her position and the positions of `k` obstacles. It iterates through all 8 possible directions the queen can move (vertical, horizontal, and diagonal) and counts valid squares until an obstacle or board edge is reached.
+
+![Flowchart](images/QueensAttackII.png)
+
+
+## The Bomberman Game
+<summary>The Bomberman Game</summary>
+Simulates Bomberman's explosion cycles on a grid.  
+- If `n = 1`, returns the initial grid.  
+- If `n` is even, the grid is filled with bombs (`O`).  
+- For odd seconds beyond that, uses a repeating pattern of explosions every 4 cycles to compute the resulting grid efficiently.
+
+![Flowchart](images/BombermanGame.png)
+
+
+## Time in Words
+<summary>Time in Words</summary>
+This function converts numerical time into its corresponding English phrase format. It uses an array of word equivalents for numbers and handles special cases like “quarter” and “half.” If minutes are 0, it returns the hour followed by “o' clock.” For values up to 30, it expresses the time as minutes “past” the current hour; for values above 30, it computes the remaining minutes to the next hour and uses “to.” The function ensures correct pluralization of “minute” and adjusts for transitions between hours.
+
+![Flowchart](images/TimeInWords.png)
+
+
+## GridSearch
+  <summary>GridSearch</summary>
+This code searches for a smaller 2D pattern `P` inside a larger 2D grid `G`. It iterates through each row of `G` where `P` could fit, and checks for occurrences of the first row of `P`. For each possible starting index, it compares the subsequent rows of `G` with the corresponding rows of `P`. If all rows match consecutively, it returns "YES"; if no match is found after checking all possibilities, it returns "NO".  
+
+![Flowchart](images/GridSearch.png)
+
+
+## LarrysArray
+  <summary>LarrysArray</summary>
+This code checks if an array `A` can be sorted using a specific rotation operation. It counts the number of **inversions** in the array, where an inversion is a pair of elements out of order. The array is sortable with the allowed operations if the total number of inversions is even. After counting all inversions, the code returns "YES" if the inversion count is even, and "NO" if it is odd.  
+
+![Flowchart](images/LarrysArray.png)
+
+
+## CountSort
+  <summary>CountSort</summary>
+This code implements a modified **counting sort** for an array of pairs `arr`, where the first element is a number (as a string) and the second is a string. It first counts how many times each number (0–99) appears. Then it converts the counts into positions using cumulative sums. While building the sorted output, the first half of the array is replaced with `'-'` and the second half keeps the original strings. Finally, it prints the sorted result as a space-separated string.  
+
+![Flowchart](images/CountSort.png)
+
+
+## SherlockValidString
+  <summary>SherlockValidString</summary>
+This code checks whether a string `s` is "valid" according to Sherlock's rules: all characters must appear the same number of times, or it must be possible to remove just one character to achieve that. It first counts the frequency of each character. Then, it counts how many characters have each frequency. If there is only one frequency, the string is valid. If there are two frequencies, it checks if one frequency occurs only once and can be adjusted by removing a single character (either by reducing it by 1 or removing a character that occurs once). If none of these conditions hold, the string is invalid.  
+
+![Flowchart](images/SherlockValidString.png)
+
+
+## HighestValuePalindrome
+  <summary>HighestValuePalindrome</summary>
+This code transforms a numeric string `s` of length `n` into the largest possible palindrome by changing at most `k` digits. It first scans from both ends towards the center, making the characters at mirrored positions equal (choosing the larger of the two) and keeping track of changes while decrementing `k`. If `k` becomes negative, it’s impossible, so it returns "-1". Then it makes a second pass to maximize the palindrome value: if a digit isn’t '9' and there are enough remaining changes, it upgrades digits to '9', using fewer changes if a digit was already modified. Finally, it returns the resulting palindrome string.  
+
+![Flowchart](images/HighestValuePalindrome.png)

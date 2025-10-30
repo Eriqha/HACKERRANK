@@ -1,14 +1,10 @@
 function climbingLeaderboard(ranked, player) {
-    const uniqueRanks = [...new Set(ranked)];
-    const result = [];
-    let i = uniqueRanks.length - 1;
-
+    let unique = [...new Set(ranked)];
+    let res = [];
+    let i = unique.length - 1;
     for (let score of player) {
-        while (i >= 0 && score >= uniqueRanks[i]) {
-            i--;
-        }
-        result.push(i + 2);
+        while (i >= 0 && score >= unique[i]) i--;
+        res.push(i + 2);
     }
-
-    return result;
+    return res;
 }

@@ -1,22 +1,15 @@
 function encryption(s) {
-    s = s.replace(/\s+/g, '');
-    const L = s.length;
-    const rows = Math.floor(Math.sqrt(L));
-    const cols = Math.ceil(Math.sqrt(L));
-    let grid = [];
-    
-    for (let i = 0; i < L; i += cols) {
-        grid.push(s.slice(i, i + cols));
+    s = s.replace(/ /g, '');
+    const len = s.length;
+    const row = Math.floor(Math.sqrt(len));
+    const col = Math.ceil(Math.sqrt(len));
+    const grid = [];
+    for (let i = 0; i < len; i += col) grid.push(s.slice(i, i + col));
+    const res = [];
+    for (let c = 0; c < col; c++) {
+        let word = '';
+        for (let r = 0; r < grid.length; r++) word += grid[r][c] || '';
+        res.push(word);
     }
-    
-    let result = '';
-    for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < grid.length; r++) {
-            if (c < grid[r].length) {
-                result += grid[r][c];
-            }
-        }
-        if (c < cols - 1) result += ' ';
-    }
-    return result;
+    return res.join(' ');
 }
